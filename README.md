@@ -1,2 +1,2 @@
 # WebFullStack51
-Bài giảng, ghi chú của khóa webfullstack 51
+Ghi chú, bài giảng của lớp webfullstack khóa 51
