@@ -56,7 +56,6 @@ export default class TaskList extends HTMLElement {
                 <li class="task" status="${task.status}" key="${task.id}">
                     <input type="checkbox" id="task-done" />
                     <p>${task.content}</p>
-                    <button id="update-btn"><i class="fas fa-pen"></i></button>
                     <button id="delete-btn" onclick="${this.deleteTask(
                         task.id
                     )}">
