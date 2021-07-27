@@ -1,2 +1,3 @@
-const element = document.getElementById('hoangthuylinh');
+const element = document.getElementById("hoangthuylinh");
 console.log(element);
+console.log(typeof null);
