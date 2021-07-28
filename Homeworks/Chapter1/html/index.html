@@ -12,8 +12,21 @@
         ></script>
     </head>
     <body>
-        <task-list></task-list>
+        <div id="container" class="task-list">
+            <h1>This is a tasklist</h1>
+            <div id="tasklist-create">
+                <input
+                    type="text"
+                    placeholder="write task ..."
+                    id="tasklist-input"
+                />
+                <button id="submit-btn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            <ul id="tasklist-list"></ul>
+        </div>
     </body>
 
-    <script src="../js/app.js" type="module"></script>
+    <script src="../js/index.js" type="module"></script>
 </html>
