@@ -11,7 +11,6 @@ $template.innerHTML = `
                 <button id="submit-btn"><i class="fas fa-paper-plane"></i></button>
             </div>
             <ul id="tasklist-list">
-                </li>
             </ul>
         </div>
 `;
@@ -56,10 +55,10 @@ export default class TaskList extends HTMLElement {
                 <li class="task" status="${task.status}" key="${task.id}">
                     <input type="checkbox" id="task-done" />
                     <p>${task.content}</p>
-                    <button id="delete-btn" onclick="${this.deleteTask(
-                        task.id
-                    )}">
-                        <i class="fas fa-trash"></i>
+                    <button class="delete-btn" >
+                        <i class="fas fa-trash" onclick="${this.deleteTask(
+                            task.id
+                        )}"></i>
                     </button>
                 </li>
             `;
@@ -70,8 +69,8 @@ export default class TaskList extends HTMLElement {
     deleteTask(id) {
         console.log(id);
 
-        // localStorage.removeItem(id);
-        // location.reload();
+        localStorage.removeItem(id);
+        this.displayTasks();
     }
 
     connectedCallback() {
@@ -93,8 +92,14 @@ export default class TaskList extends HTMLElement {
             );
 
             this.$tasklistInput.value = "";
-            location.reload();
+            this.displayTasks();
         });
+
+        const deleteBtns = document.querySelectorAll("button.delete-btn");
+        console.log(deleteBtns);
+        for (deleteBtn of deleteBtns) {
+            console.log(deleteBtn);
+        }
     }
 }
 
