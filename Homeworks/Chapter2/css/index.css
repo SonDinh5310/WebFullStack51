@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap");
+
+* {
+    font-family: "Poppins", Courier, monospace;
+    font-weight: 200;
+}
+
+body {
+    background: #74ebd5; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to right,
+        #acb6e5,
+        #74ebd5
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to right,
+        #acb6e5,
+        #74ebd5
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#person-avatar {
+    width: 250px;
+    height: 250px;
+}
+
+legend {
+    font-family: "Poppins" !important;
+    font-weight: 500 !important;
+    font-size: 4vw;
+}
