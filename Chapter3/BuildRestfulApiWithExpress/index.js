@@ -1,5 +1,7 @@
 const Joi = require("joi");
 const express = require("express");
+const mangaRouter = require("./router/mangaRouter.js");
+const userRouter = require("./router/userRouter.js");
 
 const app = express();
 
@@ -21,33 +23,7 @@ const mangas = [
     },
 ];
 
-// Lay danh sach cac loai truyen tranh
-app.get("/api/manga", (req, res) => {
-    res.send(mangas);
-});
-
-function validateMangas(manga) {
-    const schema = Joi.object({
-        name: Joi.string().min(3).required(),
-    });
-
-    return schema.validate(manga);
-}
-app.post("/api/manga", (req, res) => {
-    const { error, value } = validateMangas(req.body);
-    if (error) return res.send(400).senmd(error.details[0].message);
-    console.log(value);
-
-    const manga = {
-        id: mangas.length + 1,
-        name: req.body.name,
-    };
-    mangas.push(manga);
-    res.send(mangas);
-});
-
-// app.put("")
-
-// app.delete("")
+app.use("/api/manga", mangaRouter);
+app.use("/api/user", userRouter);
 
 app.listen(8080, () => console.log("Server is running on port 8080"));
