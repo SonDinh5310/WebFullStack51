@@ -1,0 +1,22 @@
+{
+    "name": "shopping-cart",
+    "version": "1.0.0",
+    "description": "create shopping cart ",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "JamesDinh",
+    "license": "ISC",
+    "dependencies": {
+        "@handlebars/allow-prototype-access": "^1.0.5",
+        "express": "^4.17.1",
+        "express-handlebars": "^5.3.3",
+        "joi": "^17.4.2",
+        "mongoose": "^5.13.7"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.12"
+    }
+}
