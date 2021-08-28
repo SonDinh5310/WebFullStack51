@@ -1,6 +1,7 @@
 const ProductModel = require("../models/productModel.js");
+const { validateProduct } = require("../middlewares/validate.js");
 
-class HomeController {
+class ProductController {
     //[GET] /products
     get = (req, res) => {
         ProductModel.find({}).exec((err, products) => {
@@ -16,6 +17,9 @@ class HomeController {
     };
     //[POST] /products
     post = (req, res) => {
+        const { error } = validateProduct(req.body);
+        if (error) return res.status(400).send(error.details[0].message);
+
         let product = new ProductModel();
         product.name = req.body.name;
         product.image = req.body.image;
@@ -32,4 +36,4 @@ class HomeController {
     };
 }
 
-module.exports = new HomeController();
+module.exports = new ProductController();
