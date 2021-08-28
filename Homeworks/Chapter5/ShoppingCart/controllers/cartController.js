@@ -1,4 +1,5 @@
 const CartModel = require("../models/cartModel.js");
+const { validateCart } = require("../middlewares/validate.js");
 
 class CartController {
     //[GET] /
@@ -17,6 +18,9 @@ class CartController {
     };
     //[POST] /
     post = (req, res) => {
+        const { error } = validateCart(req.body);
+        if (error) return res.status(400).send(error.details[0].message);
+
         let cart = new CartModel();
         cart.name = req.body.name;
         cart.image = req.body.image;
@@ -33,6 +37,9 @@ class CartController {
     };
     //[PUT] /cart/:id
     put = (req, res) => {
+        const { error } = validateCart(req.body);
+        if (error) return res.status(400).send(error.details[0].message);
+
         CartModel.findOneAndUpdate(
             { _id: req.params.id },
             {
