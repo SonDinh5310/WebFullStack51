@@ -1,20 +1,17 @@
 import React from "react";
 
 class ListItem extends React.Component {
-    constructor(props) {
-        super(props);
-        console.log(props);
-    }
-
     render() {
+        const { cloth, index } = this.props;
+
         return (
             <div>
-                <h1>Clothes {this.props.index}</h1>
+                <h1>Clothes {index}</h1>
                 <ul>
-                    <li>Tên: {this.props.cloth.name}</li>
-                    <li>Giá: {this.props.cloth.price}</li>
-                    <li>Màu: {this.props.cloth.color}</li>
-                    <li>Size: {this.props.cloth.size}</li>
+                    <li>Tên: {cloth.name}</li>
+                    <li>Giá: {cloth.price}</li>
+                    <li>Màu: {cloth.color}</li>
+                    <li>Size: {cloth.size}</li>
                 </ul>
             </div>
         );
