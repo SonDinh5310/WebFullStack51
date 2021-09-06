@@ -3,7 +3,7 @@ import "./App.css";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import Lifecycle from "./components/lifecycle";
-import newJson from "./new.json";
+import newJson from "./news.json";
 
 class App extends Component {
     constructor(props) {
