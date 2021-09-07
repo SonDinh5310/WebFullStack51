@@ -3,7 +3,8 @@ import "./App.css";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import Lifecycle from "./components/lifecycle";
-import newJson from "./new.json";
+import News from "./components/news";
+import newJson from "./news.json";
 
 class App extends Component {
     constructor(props) {
@@ -19,7 +20,7 @@ class App extends Component {
     getKeywords = (event) => {
         let keywords = event.target.value;
         let filtered = this.state.news.filter((item) => {
-            return item.title.indexOf(keywords) > -1;
+            return item.title.toLowerCase().indexOf(keywords) > -1;
         });
         this.setState({ filtered });
     };
@@ -28,10 +29,10 @@ class App extends Component {
         const { filtered, footerText, lifeCycleActive } = this.state;
         return (
             <>
-                <Header onChangeKeyword={this.getKeywords} />
+                <Header onChangeKeyword={this.getKeywords} news={filtered} />
                 {/* BTVN_1 */}
-                {/*<News news={filtered} />*/}
-                {lifeCycleActive ? <Lifecycle /> : null}
+                <News news={filtered} />
+                {/* {lifeCycleActive ? <Lifecycle /> : null}
                 <button
                     onClick={() =>
                         this.setState({
@@ -41,7 +42,7 @@ class App extends Component {
                 >
                     Action
                 </button>
-                <Footer footerText={footerText} />
+                <Footer footerText={footerText} /> */}
             </>
         );
     }
