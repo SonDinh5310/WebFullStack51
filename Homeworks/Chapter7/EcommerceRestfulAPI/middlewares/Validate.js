@@ -14,6 +14,20 @@ const userValidate = (data) => {
     return schema.validate(data);
 };
 
+const userUpdateValidate = (data) => {
+    const schema = Joi.object({
+        name: Joi.string().min(3),
+        email: Joi.string().email().min(10),
+        passwordHash: Joi.string(),
+        phone: Joi.string(),
+        street: Joi.string(),
+        city: Joi.string(),
+        country: Joi.string(),
+        avatar: Joi.string(),
+    });
+    return schema.validate(data);
+};
+
 const registerValidate = (data) => {
     const schema = Joi.object({
         name: Joi.string().min(3).required(),
@@ -56,4 +70,9 @@ const itemValidate = (data) => {
     return schema.validate(data);
 };
 
-module.exports = { userValidate, registerValidate, loginValidate };
+module.exports = {
+    userValidate,
+    userUpdateValidate,
+    registerValidate,
+    loginValidate,
+};
