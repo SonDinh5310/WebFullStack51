@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const {
     userValidate,
+    userUpdateValidate,
     registerValidate,
     loginValidate,
 } = require("../middlewares/Validate.js");
@@ -33,7 +34,7 @@ class UserController {
     };
 
     updateUserById = (req, res) => {
-        const { error, value } = userValidate(req.body);
+        const { error, value } = userUpdateValidate(req.body);
         if (error) return res.status(400).send(error.details[0].message);
 
         // const user = new UserModel(value);
@@ -56,8 +57,7 @@ class UserController {
             if (err) {
                 res.send("Loi lay tong so users!!");
             } else {
-                res.send("Lay tong so users thanh cong!!");
-                res.send(total);
+                res.send(`Lay tong so users thanh cong!! Co ${total} user`);
             }
         });
     };
