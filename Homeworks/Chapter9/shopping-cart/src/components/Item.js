@@ -7,7 +7,7 @@ import Box from "@material-ui/core/Box";
 const useStyles = makeStyles({
     media: {
         height: "auto",
-        width: 200,
+        width: 250,
     },
     content: {
         maxWidth: "70%",
@@ -36,7 +36,7 @@ const Item = (props) => {
 
     return (
         <Box className={classes.card} boxShadow={3}>
-            <img className={classes.media} src={image} />
+            <img className={classes.media} src={image} alt="product" />
             <div className={classes.content}>
                 <Typography
                     variant="h5"
