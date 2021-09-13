@@ -14,33 +14,47 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+const API = "https://fakestoreapi.com/products?limit=10";
 const ItemList = () => {
     const classes = useStyles();
     const [store, setStore] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [isError, setIsError] = useState(false);
 
     useEffect(() => {
-        let isMounted = true;
-        if (isMounted) {
-            axios
-                .get("https://fakestoreapi.com/products?limit=10")
-                .then((res) => {
-                    let data = res.data;
-                    setStore(data);
-                });
-        }
-        return () => (isMounted = false);
+        axios
+            .get(API)
+            .then((res) => {
+                if (res.status >= 200 && res.status < 299) {
+                    return res.data;
+                } else {
+                    setIsLoading(false);
+                    setIsError(true);
+                    throw new Error(res.statusText);
+                }
+            })
+            .then((data) => {
+                setStore(data);
+                setIsLoading(false);
+            })
+            .catch((error) => console.log("Error call Api"));
     }, []);
 
-    const items =
-        store.length > 0 ? (
-            store.map((product) => {
-                return <Item key={product.id} data={product} />;
-            })
-        ) : (
-            <CircularProgress className={classes.loading} />
-        );
+    if (isLoading) {
+        return <CircularProgress className={classes.loading} />;
+    }
 
-    return <>{items}</>;
+    if (isError) {
+        return <div>Has Error ...</div>;
+    }
+
+    return (
+        <>
+            {store.map((product) => {
+                return <Item key={product.id} data={product} />;
+            })}
+        </>
+    );
 };
 
 export default ItemList;

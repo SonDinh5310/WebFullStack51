@@ -30,13 +30,11 @@ const useStyles = makeStyles({
 
 const Item = (props) => {
     const classes = useStyles();
-    console.log(props);
-
     const { image, title, price, description } = props.data;
 
     return (
         <Box className={classes.card} boxShadow={3}>
-            <img className={classes.media} src={image} alt="product" />
+            <img className={classes.media} src={image} loading="lazy" alt="" />
             <div className={classes.content}>
                 <Typography
                     variant="h5"
