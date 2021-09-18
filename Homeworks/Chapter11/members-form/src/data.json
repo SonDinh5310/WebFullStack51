@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "fullName": "Alphonso Cuvley",
+        "branch": "Hanoi",
+        "title": "Software Engineer",
+        "email": "acuvley0@pinterest.com",
+        "phone": "979-246-9492"
+    },
+    {
+        "id": 2,
+        "fullName": "Bernhard Terbruggen",
+        "branch": "Ho Chi Minh",
+        "title": "Coder",
+        "email": "bterbruggen1@examiner.com",
+        "phone": "619-904-9641"
+    },
+    {
+        "id": 3,
+        "fullName": "Dyanna Dayne",
+        "branch": "Ho Chi Minh",
+        "title": "General Manager",
+        "email": "ddayne2@gravatar.com",
+        "phone": "902-465-3591"
+    },
+    {
+        "id": 4,
+        "fullName": "Neely Robic",
+        "branch": "Hanoi",
+        "title": "IT Helpdesk",
+        "email": "nrobic3@fda.gov",
+        "phone": "763-802-5460"
+    },
+    {
+        "id": 5,
+        "fullName": "Werner Longfoot",
+        "branch": "Ho Chi Minh",
+        "title": "Graphic Designer",
+        "email": "wlongfoot4@google.fr",
+        "phone": "663-683-3999"
+    }
+]
