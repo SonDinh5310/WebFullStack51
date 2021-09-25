@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
+    // _id: mongoose.ObjectId,
     name: {
         type: String,
         required: true,
@@ -24,16 +25,22 @@ const UserSchema = new Schema({
     },
     street: {
         type: String,
+        default: "",
     },
     city: {
         type: String,
+        default: "",
     },
     country: {
         type: String,
+        default: "",
     },
     avatar: {
         type: String, // URL only
+        default: "",
     },
 });
+
+UserSchema.path("_id").ref("User");
 
 module.exports = mongoose.model("User", UserSchema);
