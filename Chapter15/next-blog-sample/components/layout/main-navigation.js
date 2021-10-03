@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import Link from "next/link";
 
 const MainNavigation = (props) => {
@@ -11,7 +10,6 @@ const MainNavigation = (props) => {
                     </li>
 
                     <li>
-                        Link
                         <Link href="/contact">Contact</Link>
                     </li>
                 </ul>
