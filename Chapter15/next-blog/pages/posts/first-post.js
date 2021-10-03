@@ -6,8 +6,8 @@ export default function FirstPost() {
         <>
             <h1>First Post</h1>
             <h2>
-                <Link href="/" className={styles.buttonToHome}>
-                    <a>Back to home</a>
+                <Link href="/">
+                    <a className={styles.buttonToHome}>Back to home</a>
                 </Link>
             </h2>
         </>
