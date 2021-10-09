@@ -3,11 +3,8 @@ import Head from "next/head";
 import { getPostData, getSlugs } from "../../utils/helpers";
 import { AppContext } from "../../context/state";
 
-let postData = [];
-
-const PostDetailPage = async (props) => {
-    // const { data } = await useContext(AppContext);
-    // postData = data;
+const PostDetailPage = (props) => {
+    console.log("PostDetailPage", props);
     return (
         <Fragment>
             <Head>
@@ -21,10 +18,10 @@ const PostDetailPage = async (props) => {
 export const getStaticProps = (context) => {
     console.log("abc-content:", context);
 
-    const result = getPostData(postData, context.params.slug)[0];
+    // const data = getPostData(postData, context.params.slug)[0];
     return {
         props: {
-            post: result,
+            post: 1,
         },
     };
 };

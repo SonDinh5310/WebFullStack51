@@ -6,7 +6,6 @@ import styles from "../../styles/Home.module.css";
 
 const PostsList = (props) => {
     // const { data } = useContext(AppContext);
-    console.log("data", data);
     return (
         <div className={styles.container}>
             <h1 className="font-bold text-3xl my-10 text-center">Posts</h1>
