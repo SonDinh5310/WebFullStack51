@@ -15,6 +15,7 @@ const initProduct = {
 };
 
 function handleProduct(state = initProduct, action) {
+    console.log("actions", action);
     switch (action.type) {
         case GET_ALL_PRODUCT:
             return {
@@ -22,6 +23,7 @@ function handleProduct(state = initProduct, action) {
                 products: action.payload,
             };
         case ADD_CART:
+            console.log(action);
             if (state.numberCart === 0) {
                 let cart = {
                     id: action.payload.id,
@@ -31,9 +33,10 @@ function handleProduct(state = initProduct, action) {
                     price: action.payload.price,
                 };
                 state.carts.push(cart);
-            } else {
-                // Handle Push item to carts
             }
+            // else {
+            //     // Handle Push item to carts
+            // }
             return {
                 ...state,
                 numberCart: state.numberCart + 1,
