@@ -8,12 +8,11 @@ function App() {
     return (
         <Router>
             <div className="container">
-                <Header>
-                    <Switch>
-                        <Route path="/" exact component={Product}></Route>
-                        <Route path="/cart" exact component={Cart}></Route>
-                    </Switch>
-                </Header>
+                <Header />
+                <Switch>
+                    <Route path="/" exact component={Product} />
+                    <Route path="/carts" exact component={Cart} />
+                </Switch>
             </div>
         </Router>
     );
